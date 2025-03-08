@@ -32,7 +32,7 @@ public class RentPage {
     private final By orderButtonYes = By.xpath(".//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
 
     //Локатор модального окна
-    private final By modalOrderWindow = By.xpath(".//div[contains(@class, 'Order_ModalHeader')]");
+    private final By modalOrderWindow = By.className("Order_Modal__YZ-d3");
 
     // Модальное окно "Заказ Оформлен"
     public boolean isModalOrderWindowDisplayed() {

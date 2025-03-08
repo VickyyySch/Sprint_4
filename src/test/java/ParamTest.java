@@ -48,4 +48,5 @@ public class ParamTest extends BaseTest {
         String ActualAnswerText = driver.findElement(By.id(answerLocator)).getText();
         assertEquals("Текст в ответе не соответствует ожидаемому тексту.", answerText, ActualAnswerText);
     }
-}
+
+    }

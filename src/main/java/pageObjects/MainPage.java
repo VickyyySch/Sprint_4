@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 
 public class MainPage {
@@ -24,7 +26,7 @@ public class MainPage {
     private By headerOrderButton = By.className("Button_Button__ra12g");
 
     // Локатор кнопки заказа в середине сайта
-    private By middleOrderButton = By.className("Button_Middle__1CSJM");
+    private By middleOrderButton =  By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM");
 
     // Локаторы  с вопросами
     private static final String[] dropDownQuestionsArray = new String[]{
@@ -82,14 +84,14 @@ public class MainPage {
 
     // Клик по стрелке выпадающего списка
     public static void clickQuestionArrow(int questionNumber) {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(By.id(dropDownQuestionsArray[questionNumber])));
         driver.findElement(By.id(dropDownQuestionsArray[questionNumber])).click();
     }
 
     // Проверка текста в открытой панели
     public static void checkTextInOpenPanel(String expectedText, int answerNumber) {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.id(dropDownAnswersArray[answerNumber])));
         String answerText = driver.findElement(By.id(dropDownAnswersArray[answerNumber])).getText();
         assertEquals(expectedText, answerText);
@@ -97,7 +99,7 @@ public class MainPage {
 
     // Клик по кнопке вопроса
     public MainPage clickQuestionButton(String questionButtonLocator) {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(By.id(questionButtonLocator)));
         driver.findElement(By.id(questionButtonLocator)).click();
         return this;
